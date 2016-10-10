@@ -53,8 +53,11 @@ class Game
 
 	def perform_switches
 		switches_to_make.each do |switch|
-			grid.board[switch[0]][switch[1]] = 0 if grid.board[switch[0]][switch[1]] == 1
-			grid.board[switch[0]][switch[1]] = 1 if grid.board[switch[0]][switch[1]] == 0
+			if grid.board[switch[0]][switch[1]] == 1
+				grid.board[switch[0]][switch[1]] = 0 
+			else	
+				grid.board[switch[0]][switch[1]] = 1 
+			end
 		end
 		self.switches_to_make = Array.new
 	end
